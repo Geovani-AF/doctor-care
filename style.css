@@ -1,4 +1,4 @@
-/*=== GERAL ==========================*/
+/*=== GERAL =================================*/
 * {
   margin: 0;
   padding: 0;
@@ -18,19 +18,13 @@
 
   --bg-light: hsl(180, 14%, 97%);
 
-  font-size: 62.5%; /* 100% equivale 16px  | 62.5%
-  
-  100%   x      | Regra de três:
-  ----  ----    | (100 * 10) / 16 = 62.5
-  16px   10px   |
-  
-  1rem que valia 16px passa a valer 10px
-  */
+  font-size: 62.5%; /* 1rem = 10px */
 
   --nav-height: 7.2rem;
 }
 
 html {
+  /* chrome://flags/#smooth-scrolling */
   scroll-behavior: smooth;
 }
 
@@ -71,8 +65,6 @@ section {
 
 section header h4 {
   font-size: 1.4rem;
-  color: var(--primary-color);
-  margin-bottom: 1.6rem;
   font-weight: 700;
   line-height: 150%;
   letter-spacing: 0.08rem;
@@ -143,7 +135,7 @@ section .content p {
   gap: 3.2rem;
 }
 
-/* custom colors*/
+/* custom colors */
 #services .card circle {
   fill: var(--brand-light);
 }
@@ -167,8 +159,7 @@ body.menu-expanded #navigation .logo path,
   stroke: white;
 }
 
-/*=== NAVIGATION ===========================================*/
-
+/*=== NAVIGATION =================================*/
 nav {
   display: flex;
 
@@ -202,8 +193,7 @@ nav .close-menu {
   position: fixed;
 }
 
-/*=== MENU-EXPANDED ===========================================*/
-
+/*=== MENU-EXPANDED =================================*/
 body.menu-expanded {
   overflow: hidden;
 }
@@ -240,7 +230,7 @@ body.menu-expanded .menu {
   padding-top: var(--nav-height);
 
   transition: transform 300ms;
-  transform: translateY(0%);
+  transform: translateY(0);
 }
 
 .menu ul:nth-child(1) {
@@ -299,7 +289,7 @@ body.menu-expanded button path {
   stroke: white;
 }
 
-/*=== HOME ===========================================*/
+/*=== #HOME =================================*/
 #home {
   padding-block: 0;
   padding-top: calc(4.1rem + var(--nav-height));
@@ -340,7 +330,7 @@ body.menu-expanded button path {
 
 #home .stats {
   width: 100%;
-  padding-block: 4rem; /* substitui padding-top & padding-bottom */
+  padding-block: 4rem;
   margin-inline: auto;
 
   background-color: var(--brand-beige);
@@ -368,8 +358,8 @@ body.menu-expanded button path {
   line-height: 150%;
 }
 
-/*=== SERVICES ===========================================*/
-#services h2 {
+/*=== SERVICES =================================*/
+#services header h2 {
   margin-bottom: 6rem;
 }
 
@@ -393,7 +383,7 @@ body.menu-expanded button path {
   margin-block: 1.6rem;
 }
 
-/*=== ABOUT ===========================================*/
+/*=== ABOUT =================================*/
 #about {
   text-align: left;
   background-color: var(--brand-beige);
@@ -408,7 +398,7 @@ body.menu-expanded button path {
   margin-bottom: 6rem;
 }
 
-/*=== CONTACT ===========================================*/
+/*=== CONTACT =================================*/
 #contact {
   text-align: left;
 }
@@ -431,8 +421,7 @@ body.menu-expanded button path {
   gap: 0.8rem;
 }
 
-/*=== FOOTER ===========================================*/
-
+/*=== FOOTER =================================*/
 footer {
   background-color: var(--primary-color);
   padding-block: 6rem;
@@ -486,9 +475,9 @@ footer .social-links {
   transform: translateY(0);
 }
 
-/*=== RESPONSIVO ===========================================*/
+/*=== RESPONSIVO =================================*/
 @media (min-width: 1024px) {
-  /*=== GERAL ===========================================*/
+  /*=== GERAL =================================*/
   body {
     overflow: auto;
   }
@@ -496,6 +485,14 @@ footer .social-links {
   .wrapper {
     width: min(112rem, 100%);
     display: grid;
+  }
+
+  .col-a {
+    grid-area: A;
+  }
+
+  .col-b {
+    grid-area: B;
   }
 
   section {
@@ -507,17 +504,8 @@ footer .social-links {
     line-height: 5.2rem;
   }
 
-  .col-a {
-    grid-area: A;
-  }
-
-  .col-b {
-    grid-area: B;
-  }
-
-  /*=== NAVIGATION ===========================================*/
-
-  /* reset*/
+  /*=== NAVIGATION =================================*/
+  /* reset */
   nav#navigation .wrapper * {
     margin: 0;
     padding: 0;
@@ -572,12 +560,6 @@ footer .social-links {
     font-size: 1.4rem;
     line-height: 1.8rem;
     text-transform: uppercase;
-  }
-
-  nav#navigation .menu a.button:hover {
-    background-color: var(--primary-color);
-    border: none;
-    color: white;
   }
 
   nav#navigation .menu a.button:hover {
@@ -643,10 +625,11 @@ footer .social-links {
     border: none;
   }
 
-  /*=== HOME ===========================================*/
+  /*=== HOME =================================*/
   #home::before {
     height: calc(96% - var(--nav-height));
   }
+
   #home {
     padding-top: var(--nav-height);
   }
@@ -660,6 +643,7 @@ footer .social-links {
 
   #home .col-a {
     text-align: left;
+    align-self: center;
   }
 
   #home h1 {
@@ -694,7 +678,7 @@ footer .social-links {
     width: 42rem;
   }
 
-  /*=== SERVICES ===========================================*/
+  /*=== SERVICES =================================*/
   #services h2 {
     width: 47rem;
     margin-inline: auto;
@@ -711,7 +695,7 @@ footer .social-links {
     flex-grow: 1;
   }
 
-  /*=== ABOUT ===========================================*/
+  /*=== ABOUT =================================*/
   #about .wrapper {
     grid-template-columns: 48rem 1fr;
     grid-template-areas: 'B A';
@@ -726,7 +710,7 @@ footer .social-links {
     margin-bottom: 0;
   }
 
-  /*=== CONTACT ===========================================*/
+  /*=== CONTACT =================================*/
 
   #contact .wrapper {
     grid-template-columns: 1fr 57.5rem;
@@ -737,12 +721,11 @@ footer .social-links {
     width: 40.4rem;
   }
 
-  /*=== FOOTER ===========================================*/
-
+  /*=== FOOTER =================================*/
   footer {
-    padding-block: 8remaaa;
+    padding-block: 8rem;
   }
-
+  
   footer .wrapper {
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 'A B';
@@ -752,12 +735,13 @@ footer .social-links {
     align-self: center;
   }
 
+
   footer .col-b {
     align-self: center;
     justify-self: flex-end;
   }
 
   footer p {
-    margin-bottom: 0;
+    margin-bottom: 0
   }
 }

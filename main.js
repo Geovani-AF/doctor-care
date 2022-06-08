@@ -14,19 +14,12 @@ function onScroll() {
 }
 
 function activateMenuAtCurrentSection(section) {
-  // linha alvo
   const targetLine = scrollY + innerHeight / 2
 
   // verificar se a seção passou da linha
   // quais dados vou precisar?
-
-  // o topo da seção
   const sectionTop = section.offsetTop
-
-  // a altura da seção
   const sectionHeight = section.offsetHeight
-
-  // o topo da seção chegou ou ultrapassou a linha alvo
   const sectionTopReachOrPassedTargetline = targetLine >= sectionTop
 
   // verificar se a base está abaixo da linha alvo
@@ -76,11 +69,12 @@ ScrollReveal({
   distance: '30px',
   duration: 700
 }).reveal(`
-  #home,
-  #home img,
-  #home .stats,
+  #home, 
+  #home img, 
+  #home .stats, 
   #services,
   #services header,
-  #services .card,
-  #about, #about header,
+  #services .card
+  #about, 
+  #about header, 
   #about .content`)
